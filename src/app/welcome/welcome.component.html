@@ -1,0 +1,39 @@
+<div class="container" >
+
+    <!--slider-->
+    <div class="my-3">
+      <div id="welcome-products" class="carousel slide" data-ride="carousel">
+        <!--indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#welcome-products"
+              *ngFor="let item of categories; let first=first; let i=index"
+              attr.data-slide-to="{{i}}"
+              [ngClass]="{active: first}"></li>
+        </ol>
+        <!--content-->
+        <div class="carousel-inner" role="listbox" >
+          <div class="carousel-item"
+               role="listbox"
+               *ngFor="let item of categories; let first=first"
+               [ngClass]="{active:first}" >
+            <app-category-slider [category]="item" ></app-category-slider>
+          </div>
+        </div>
+        <!--controls-->
+        <a class="carousel-control-prev" href="#welcome-products" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#welcome-products" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div><!--slider-->
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 mb-3"
+             *ngFor="let cat of categories" >
+          <app-category-card [category]="cat"></app-category-card>
+        </div>
+    </div>
+</div>

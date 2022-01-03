@@ -1,0 +1,25 @@
+<nav class="navbar-toggleable-sm fixed-top navbar navbar-inverse bg-primary" >
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+              ria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler" >
+        <a class="navbar-brand" [routerLink]="['/welcome']" [innerHTML]="appName">Dream Bean</a>
+          <ul class="nav navbar-nav mr-auto" *ngIf="isAuthenticated">
+              <li class="nav-item" *ngFor="let item of navItems">
+                  <a class="nav-link" [routerLink]="[item.href]" [routerLinkActive]="['active']">{{item.label}}</a>
+                </li>
+            </ul>
+  
+          <button class="btn btn-outline-success ml-auto mr-3" [routerLink]="['/auth']"
+          *ngIf="!isAuthenticated" style="background-color: rgb(244, 255, 242)" 
+          onmouseover="this.style.color='#0F0'">Login</button>
+          <button  class="btn btn-outline-warning my-2 my-sm-0" 
+          *ngIf="isAuthenticated" (click)="onLogout()" style="background-color: rgb(244, 255, 242)"
+          onmouseover="this.style.color='#0F0'">Logout
+          </button>
+          <app-cart-menu  *ngIf="isAuthenticated"></app-cart-menu>
+      </div>
+    </div>
+  </nav>

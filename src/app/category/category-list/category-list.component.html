@@ -1,0 +1,6 @@
+<div class="card mb-3">
+    <h5 class="card-header">Categories</h5>
+      <ul class="list-group list-group-flush">
+        <a class="list-group-item" *ngFor="let item of categories" (click)="filterProducts(item)">{{item.title}}</a>
+      </ul>
+</div>
